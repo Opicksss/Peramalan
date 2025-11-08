@@ -20,8 +20,8 @@
             <h6 class="mb-0 text-uppercase">Penjualan Rokok</h6>
             <!-- Button trigger modal -->
             <div>
-                <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exel"><i
-                        class="bx bx-plus bx-spin-hover"></i>Penjualan Exel</button>
+                {{-- <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exel"><i
+                        class="bx bx-plus bx-spin-hover"></i>Penjualan Exel</button> --}}
                 <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#create"><i
                         class="bx bx-plus bx-spin-hover"></i>Penjualan</button>
             </div>

@@ -22,8 +22,8 @@ class DatabaseSeeder extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'name' => 'opik',
-            'email' => 'trahman.student@unibamadura.ac.id',
+            'name' => 'Hayyi',
+            'email' => 'abd.hayyi.student@unibamadura.ac.id',
             'password' => Hash::make('123123123'),
             'role' => 'user',
         ]);

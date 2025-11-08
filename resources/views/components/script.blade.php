@@ -40,6 +40,16 @@
     });
 </script>
 
+<script>
+    $(document).ready(function() {
+        var table = $('#datatable1').DataTable({
+            lengthChange: false,
+        });
+
+        table.buttons().container()
+            .appendTo('#datatable_wrapper .col-md-6:eq(0)');
+    });
+</script>
 
 <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields

@@ -27,7 +27,7 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table id="datatable" class="table align-middle mb-0 table-hover">
+                    <table id="datatable1" class="table align-middle mb-0 table-hover">
                         <thead class="table-light">
                             <tr>
                                 <th style="width: 10px;">No</th>

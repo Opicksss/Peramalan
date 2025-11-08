@@ -75,6 +75,16 @@
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
+                                    <p class="mb-0">Rata-Rata MAPE</p>
+                                    <h4 class="my-2 mb-2">{{ floatval(round($mape, 2)) }}</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card radius-10 flex-fill">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center">
+                                <div>
                                     <p class="mb-0">Rata-Rata MAD</p>
                                     <h4 class="my-2 mb-2">{{ floatval(round($mae, 2)) }}</h4>
                                 </div>
@@ -87,16 +97,6 @@
                                 <div>
                                     <p class="mb-0">Rata-Rata MSE</p>
                                     <h4 class="my-2 mb-2">{{ floatval(round($mse, 2)) }}</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card radius-10 flex-fill">
-                        <div class="card-body">
-                            <div class="d-flex align-items-center">
-                                <div>
-                                    <p class="mb-0">Rata-Rata RMSE</p>
-                                    <h4 class="my-2 mb-2">{{ floatval(round($rmse, 2)) }}</h4>
                                 </div>
                             </div>
                         </div>

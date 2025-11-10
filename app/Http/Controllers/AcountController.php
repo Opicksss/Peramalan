@@ -75,6 +75,7 @@ class AcountController extends Controller
             $validatedData = $request->validate([
                 'name' => 'required',
                 'email' => 'required',
+                'role' => 'required|string',
             ]);
 
             $user->Update($validatedData);

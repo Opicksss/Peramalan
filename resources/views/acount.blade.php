@@ -88,6 +88,17 @@
                                                             value="{{ $user->email }}" name="email"
                                                             placeholder="Email Aktif" required>
                                                     </div>
+                                                    <div>
+                                                        <label class="form-label d-block">Role</label>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="role" id="roleAdmin{{ $user->id }}" value="admin" {{ $user->role == 'admin' ? 'checked' : '' }} required>
+                                                            <label class="form-check-label" for="roleAdmin{{ $user->id }}">Operator</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input class="form-check-input" type="radio" name="role" id="roleUser{{ $user->id }}" value="user" {{ $user->role == 'user' ? 'checked' : '' }}>
+                                                            <label class="form-check-label" for="roleUser{{ $user->id }}">Pegawai</label>
+                                                        </div>
+                                                    </div>
                                                     <div class="modal-footer">
                                                         <button type="reset"
                                                             class="btn btn-outline-secondary">Reset</button>
@@ -179,6 +190,20 @@
                                 placeholder="Email Aktif" required>
                             <div class="invalid-feedback">
                                 Masukkan Email Aktif!
+                            </div>
+                        </div>
+                        <div>
+                            <label class="form-label d-block">Role</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="role" id="roleAdmin" value="admin" required>
+                                <label class="form-check-label" for="roleAdmin">Operator</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="role" id="roleUser" value="user">
+                                <label class="form-check-label" for="roleUser">Pegawai</label>
+                            </div>
+                            <div class="invalid-feedback">
+                                Pilih Role Anda!
                             </div>
                         </div>
                         <input type="hidden" name="password" value="12345678">

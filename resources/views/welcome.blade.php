@@ -105,14 +105,6 @@
                             <div class="card-body">
                                 <div class="chart-container">
                                     <div class="chart-controls gap-2">
-                                        <select id="bulan" class="form-select form-select-sm" style="min-width: 120px;">
-                                            @foreach ($namaBulan as $key => $nama)
-                                                <option value="{{ $key }}"
-                                                    {{ $key == $bulanTerpilih ? 'selected' : '' }}>
-                                                    {{ $nama }}
-                                                </option>
-                                            @endforeach
-                                        </select>
                                         <select id="tahun" class="form-select form-select-sm">
                                             @foreach ($tahunList as $tahun)
                                                 <option value="{{ $tahun }}"
@@ -158,18 +150,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 
     <script>
-        document.getElementById('tahun').addEventListener('change', updateChart);
-        document.getElementById('bulan').addEventListener('change', updateChart);
-
-        function updateChart() {
-            const tahun = document.getElementById('tahun').value;
-            const bulan = document.getElementById('bulan').value;
-            window.location.href = `?tahun=${tahun}&bulan=${bulan}`;
-        }
+        document.getElementById('tahun').addEventListener('change', function() {
+            const tahun = this.value;
+            window.location.href = `?tahun=${tahun}`;
+        });
 
         var penjualan = @json(array_values($penjualan));
         var peramalan = @json(array_values($peramalan));
-        var hariLabels = @json($hariLabels);
+        var bulanLabels = @json(array_values($namaBulan));
 
         var optionsLine = {
             chart: {
@@ -198,7 +186,8 @@
                 width: 3
             },
             colors: ["#d2f3e4", "#9fb0fe"],
-            series: [{
+            series: [
+                {
                     name: "Penjualan",
                     data: penjualan
                 },
@@ -232,18 +221,18 @@
             tooltip: {
                 theme: 'dark'
             },
-            labels: hariLabels,
+            labels: bulanLabels,
             xaxis: {
                 tooltip: {
                     enabled: false
                 },
                 title: {
-                    text: 'Tanggal'
+                    text: 'Bulan'
                 }
             },
             yaxis: {
                 title: {
-                    text: 'Kilogram'
+                    text: 'Ball'
                 },
                 labels: {
                     formatter: function(value) {

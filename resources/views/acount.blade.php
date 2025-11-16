@@ -92,11 +92,11 @@
                                                         <label class="form-label d-block">Role</label>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="radio" name="role" id="roleAdmin{{ $user->id }}" value="admin" {{ $user->role == 'admin' ? 'checked' : '' }} required>
-                                                            <label class="form-check-label" for="roleAdmin{{ $user->id }}">Operator</label>
+                                                            <label class="form-check-label" for="roleAdmin{{ $user->id }}">Admin</label>
                                                         </div>
                                                         <div class="form-check form-check-inline">
                                                             <input class="form-check-input" type="radio" name="role" id="roleUser{{ $user->id }}" value="user" {{ $user->role == 'user' ? 'checked' : '' }}>
-                                                            <label class="form-check-label" for="roleUser{{ $user->id }}">Pegawai</label>
+                                                            <label class="form-check-label" for="roleUser{{ $user->id }}">Operator</label>
                                                         </div>
                                                     </div>
                                                     <div class="modal-footer">
@@ -196,11 +196,11 @@
                             <label class="form-label d-block">Role</label>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="role" id="roleAdmin" value="admin" required>
-                                <label class="form-check-label" for="roleAdmin">Operator</label>
+                                <label class="form-check-label" for="roleAdmin">Admin</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="role" id="roleUser" value="user">
-                                <label class="form-check-label" for="roleUser">Pegawai</label>
+                                <label class="form-check-label" for="roleUser">Operator</label>
                             </div>
                             <div class="invalid-feedback">
                                 Pilih Role Anda!

@@ -30,7 +30,7 @@ class PenjualanController extends Controller
                 ]);
 
                 $validatedData = $request->validate([
-                    'tanggal' => 'required|date',
+                    'tanggal' => 'required|date|unique:penjualans,tanggal',
                     'jumlah_terjual' => 'required|numeric',
                 ]);
 
@@ -40,7 +40,23 @@ class PenjualanController extends Controller
 
             return redirect()->back()->with('success', 'Data Penjualan berhasil ditambahkan');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'terjadi kesalahan saat menambahkan Data Penjualan. Silakan coba lagi.');
+            $errorMessage = $e->getMessage();
+
+            // Cek jika pesan error umum, terjemahkan ke Bahasa Indonesia
+            if (str_contains($errorMessage, 'The tanggal has already been taken')) {
+                $errorMessage = 'Bulan sudah Terdata.';
+            } elseif (str_contains($errorMessage, 'The tanggal field is required')) {
+                $errorMessage = 'Bulan wajib diisi.';
+            } elseif (str_contains($errorMessage, 'The jumlah terjual field is required')) {
+                $errorMessage = 'Jumlah terjual wajib diisi.';
+            } elseif (str_contains($errorMessage, 'The jumlah terjual must be a number')) {
+                $errorMessage = 'Jumlah terjual harus berupa angka.';
+            }
+
+            return redirect()
+                ->back()
+                ->with('error', 'Terjadi kesalahan: ' . $errorMessage)
+                ->withInput();
         }
     }
 
@@ -49,10 +65,11 @@ class PenjualanController extends Controller
         try {
             DB::transaction(function () use ($request, $penjualan) {
                 $request->merge([
-                'tanggal' => $request->tanggal . '-01'
-            ]);
+                    'tanggal' => $request->tanggal . '-01',
+                ]);
+
                 $validatedData = $request->validate([
-                    'tanggal' => 'required|date',
+                    'tanggal' => 'required|date|unique:penjualans,tanggal,' . $penjualan->id,
                     'jumlah_terjual' => 'required|numeric',
                 ]);
 
@@ -65,7 +82,22 @@ class PenjualanController extends Controller
 
             return redirect()->back()->with('success', 'Data Penjualan berhasil diperbarui');
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Gagal Merubah Data Penjualan. Silakan coba lagi');
+            $errorMessage = $e->getMessage();
+
+            if (str_contains($errorMessage, 'The tanggal has already been taken')) {
+                $errorMessage = 'Bulan sudah Terdata.';
+            } elseif (str_contains($errorMessage, 'The tanggal field is required')) {
+                $errorMessage = 'Bulan wajib diisi.';
+            } elseif (str_contains($errorMessage, 'The jumlah terjual field is required')) {
+                $errorMessage = 'Jumlah terjual wajib diisi.';
+            } elseif (str_contains($errorMessage, 'The jumlah terjual must be a number')) {
+                $errorMessage = 'Jumlah terjual harus berupa angka.';
+            }
+
+            return redirect()
+                ->back()
+                ->with('error', 'Terjadi kesalahan Saat Update: ' . $errorMessage)
+                ->withInput();
         }
     }
 

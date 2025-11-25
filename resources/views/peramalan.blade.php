@@ -17,7 +17,7 @@
         </div>
         <!--end breadcrumb-->
         <div class="d-flex justify-content-between align-items-center">
-            <h6 class="mb-0 text-uppercase">Peramalan Produksi Rokok</h6>
+            <h6 class="mb-0 text-uppercase">Peramalan Produksi Hasil Tembakau</h6>
             <div class="d-flex align-items-center gap-2">
                 <div class="dropdown">
                     <button class="btn btn-light d-flex align-items-center gap-2 dropdown-toggle" type="button"

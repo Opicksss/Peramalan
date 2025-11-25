@@ -145,6 +145,9 @@
                             <label for="foto" class="form-label">New Foto</label>
                             <input type="file" class="form-control" id="foto" name="foto"
                                 accept="image/*" required>
+                            <div class="form-label mt-2" style="font-size: 12px;">
+                                Maksimal ukuran file 2MB.
+                            </div>
                             <div class="invalid-feedback">
                                 Upload Foto Baru Anda !
                             </div>

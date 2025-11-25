@@ -77,27 +77,24 @@
                                                     @csrf
                                                     @method('PUT')
                                                     <div class="mt-3">
-                                                        <label for="name" class="form-label">Name</label>
-                                                        <input type="text" class="form-control" id="name"
+                                                        <label for="name{{ $user->id }}" class="form-label">Name</label>
+                                                        <input type="text" class="form-control" id="name{{ $user->id }}"
                                                             value="{{ $user->name }}" name="name"
                                                             placeholder="Nama Lengkap" required>
                                                     </div>
                                                     <div class="mt-3 mb-3">
-                                                        <label for="email" class="form-label">Email</label>
-                                                        <input type="email" class="form-control" id="email"
+                                                        <label for="email{{ $user->id }}" class="form-label">Email</label>
+                                                        <input type="email" class="form-control" id="email{{ $user->id }}"
                                                             value="{{ $user->email }}" name="email"
                                                             placeholder="Email Aktif" required>
                                                     </div>
-                                                    <div>
-                                                        <label class="form-label d-block">Role</label>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="role" id="roleAdmin{{ $user->id }}" value="admin" {{ $user->role == 'admin' ? 'checked' : '' }} required>
-                                                            <label class="form-check-label" for="roleAdmin{{ $user->id }}">Operator</label>
-                                                        </div>
-                                                        <div class="form-check form-check-inline">
-                                                            <input class="form-check-input" type="radio" name="role" id="roleUser{{ $user->id }}" value="user" {{ $user->role == 'user' ? 'checked' : '' }}>
-                                                            <label class="form-check-label" for="roleUser{{ $user->id }}">Pegawai</label>
-                                                        </div>
+                                                    <div class="mt-3">
+                                                        <label for="password{{ $user->id }}" class="form-label">Password Baru</label>
+                                                        <input type="password" class="form-control" id="password{{ $user->id }}" name="password" placeholder="Kosongkan jika tidak ingin mengubah">
+                                                    </div>
+                                                    <div class="mt-3 mb-3">
+                                                        <label for="password_confirmation{{ $user->id }}" class="form-label">Konfirmasi Password Baru</label>
+                                                        <input type="password" class="form-control" id="password_confirmation{{ $user->id }}" name="password_confirmation" placeholder="Konfirmasi Password Baru">
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="reset"
@@ -192,22 +189,26 @@
                                 Masukkan Email Aktif!
                             </div>
                         </div>
-                        <div>
-                            <label class="form-label d-block">Role</label>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="role" id="roleAdmin" value="admin" required>
-                                <label class="form-check-label" for="roleAdmin">Operator</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="role" id="roleUser" value="user">
-                                <label class="form-check-label" for="roleUser">Pegawai</label>
-                            </div>
+                        <!-- Password langsung -->
+                        {{-- <div>
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required>
                             <div class="invalid-feedback">
-                                Pilih Role Anda!
+                                Masukkan Password!
                             </div>
                         </div>
+                        <div>
+                            <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                            <input type="password" class="form-control" id="password_confirmation" name="password_confirmation" placeholder="Konfirmasi Password" required>
+                            <div class="invalid-feedback">
+                                Konfirmasi Password harus diisi!
+                            </div>
+                        </div> --}}
+                        <!-- //Password langsung -->
+                        <!-- Password Default -->
                         <input type="hidden" name="password" value="12345678">
                         <input type="hidden" name="password_confirmation" value="12345678">
+                        <!-- //Password Default -->
                         <div class="modal-footer">
                             <button type="reset" class="btn btn-outline-secondary">Reset</button>
                             <button type="submit" class="btn btn-outline-light">Submit</button>

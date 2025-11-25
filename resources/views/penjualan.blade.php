@@ -17,7 +17,7 @@
         </div>
         <!--end breadcrumb-->
         <div class="d-flex justify-content-between align-items-center">
-            <h6 class="mb-0 text-uppercase">Penjualan Rokok</h6>
+            <h6 class="mb-0 text-uppercase">Penjualan Hasil Tembakau</h6>
             <!-- Button trigger modal -->
             <div>
                 {{-- <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exel"><i

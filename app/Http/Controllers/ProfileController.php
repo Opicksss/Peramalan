@@ -70,9 +70,9 @@ class ProfileController extends Controller
             $errorMessage = 'Foto wajib diunggah.';
             } elseif (str_contains($errorMessage, 'The foto must be an image')) {
             $errorMessage = 'File harus berupa gambar.';
-            } elseif (str_contains($errorMessage, 'The foto must be a file of type: jpeg, png, jpg')) {
+            } elseif (str_contains($errorMessage, 'The foto field must be an image. (and 2 more errors)')) {
             $errorMessage = 'Foto harus bertipe jpeg, png, atau jpg.';
-            } elseif (str_contains($errorMessage, 'The foto may not be greater than 2048 kilobytes')) {
+            } elseif (str_contains($errorMessage, 'The foto field must not be greater than 2048 kilobytes')) {
             $errorMessage = 'Ukuran foto maksimal 2MB.';
             }
 

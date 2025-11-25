@@ -74,6 +74,7 @@ class AcountController extends Controller
             $validatedData = $request->validate([
                 'name' => 'required',
                 'email' => 'required',
+                'password' => 'required|confirmed|min:8',
             ]);
 
             $user->Update($validatedData);

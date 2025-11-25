@@ -28,10 +28,9 @@
                         <li class="dropdown-item d-flex justify-content-between align-items-center">
                             <span class="me-5">ALPHA</span>
                             <span class="me-5">MAPE</span>
-                            <span class="me-5">MAE</span>
+                            <span class="me-5">MAD</span>
                             <span class="me-5">MSE</span>
-                            <span class="me-5">RMSE</span>
-                            <span>MASE</span>
+
                         </li>
                         @foreach ($alphas as $item)
                             <li>
@@ -39,13 +38,12 @@
                                     @csrf
                                     <input type="hidden" name="alpha" value="{{ $item['alpha'] }}">
                                     <button type="submit"
-                                        class="dropdown-item d-flex justify-content-between align-items-center {{ $item['alpha'] == $bestMape || $item['alpha'] == $bestRmse ? 'bg-success text-white' : ($item['alpha'] == $alpha ? 'bg-secondary text-white' : '') }}">
+                                        class="dropdown-item d-flex justify-content-between align-items-center {{ $item['alpha'] == $bestMape || $item['alpha'] == $bestmad ? 'bg-success text-white' : ($item['alpha'] == $alpha ? 'bg-secondary text-white' : '') }}">
                                         <span>{{ $item['alpha'] }}</span>
                                         <span>{{ $item['mape'] }}%</span>
-                                        <span>{{ $item['mae'] }}</span>
+                                        <span>{{ $item['mad'] }}</span>
                                         <span>{{ $item['mse'] }}</span>
-                                        <span>{{ $item['rmse'] }}</span>
-                                        <span>{{ $item['mase'] }}</span>
+
                                     </button>
                                 </form>
                             </li>
@@ -65,7 +63,7 @@
                                 <div>
                                     <p class="mb-0">Data Ramalan</p>
                                     <h4 class="my-2 mb-2">
-                                        {{ isset($hari->hasil_peramalan) ? floatval(round($hari->hasil_peramalan, 2)) : '-' }}
+                                        {{ isset($bulan->hasil_peramalan) ? floatval(round($bulan->hasil_peramalan, 2)) : '-' }}
                                     </h4>
                                 </div>
                             </div>
@@ -86,7 +84,7 @@
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0">Rata-Rata MAD</p>
-                                    <h4 class="my-2 mb-2">{{ floatval(round($mae, 2)) }}</h4>
+                                    <h4 class="my-2 mb-2">{{ floatval(round($mad, 2)) }}</h4>
                                 </div>
                             </div>
                         </div>

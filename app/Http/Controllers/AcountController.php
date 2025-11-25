@@ -38,7 +38,6 @@ class AcountController extends Controller
                 'name' => 'required|string|max:255',
                 'email' => 'required|email|max:255|unique:users,email',
                 'password' => 'required|confirmed|min:8',
-                'role' => 'required|string',
             ]);
 
             $validatedData['password'] = Hash::make($validatedData['password']);
@@ -75,7 +74,6 @@ class AcountController extends Controller
             $validatedData = $request->validate([
                 'name' => 'required',
                 'email' => 'required',
-                'role' => 'required|string',
             ]);
 
             $user->Update($validatedData);

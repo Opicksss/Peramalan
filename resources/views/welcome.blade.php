@@ -81,7 +81,7 @@
                                         <h5 class="card-title">Selamat Datang {{ strtoupper(Auth::user()->name) }} 🎉
                                         </h5>
                                         <p class="mb-4">
-                                            Optimalkan peramalan permintaan produksi <span class="fw-bold">Rokok</span>
+                                            Optimalkan peramalan permintaan produksi <span class="fw-bold">Hasil Tembakau</span>
                                             di Lenteng dengan metode
                                             <span class="fw-bold">Single Exponential Smoothing</span> untuk pengambilan
                                             keputusan yang lebih akurat dan efisien.

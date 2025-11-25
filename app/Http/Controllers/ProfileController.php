@@ -61,8 +61,25 @@ class ProfileController extends Controller
 
             $user->Update($validatedData);
             return redirect()->back()->with('success', 'Foto Profile Berhasil di Dirubah');
+
         } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Gagal Merubah Foto Profile');
+            $errorMessage = $e->getMessage();
+
+            // Cek jika pesan error umum, terjemahkan ke Bahasa Indonesia
+            if (str_contains($errorMessage, 'The foto field is required')) {
+            $errorMessage = 'Foto wajib diunggah.';
+            } elseif (str_contains($errorMessage, 'The foto must be an image')) {
+            $errorMessage = 'File harus berupa gambar.';
+            } elseif (str_contains($errorMessage, 'The foto must be a file of type: jpeg, png, jpg')) {
+            $errorMessage = 'Foto harus bertipe jpeg, png, atau jpg.';
+            } elseif (str_contains($errorMessage, 'The foto may not be greater than 2048 kilobytes')) {
+            $errorMessage = 'Ukuran foto maksimal 2MB.';
+            }
+
+            return redirect()
+            ->back()
+            ->with('error', 'Terjadi kesalahan: ' . $errorMessage)
+            ->withInput();
         }
     }
 
